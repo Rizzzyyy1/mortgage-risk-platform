@@ -130,7 +130,7 @@ This reproduces the vendor-free engineering/test evidence. Reproducing the vendo
 
 | Topic | Document |
 |---|---|
-| Reviewer presentation (8 slides) | [claude.ai/artifact/DtfvvZiAmzV8GdToQU5jFJ](https://claude.ai/artifact/DtfvvZiAmzV8GdToQU5jFJ) |
+| Reviewer presentation (8 slides, standalone HTML) | `docs/reviewer_presentation.html` |
 | Milestone-by-milestone status | `docs/project_status.md` |
 | Loss/workout/exposure evidence chain | `docs/redevelopment_plan.md` |
 | Field mappings and output schemas | `docs/data_dictionary.md` |

@@ -33,7 +33,7 @@ The mathematical and statistical definitions remain in methodology.md and target
 | Independent challenge | Developer implementation checks with distinct calculation paths | Objective external model review required before material business use; no independent certification is claimed |
 | Security and privacy | Local execution, aggregate dashboard, excluded raw/run data, no external dashboard dependencies | Authentication, authorization, retention policy, audit log integrity and threat assessment required if deployed |
 | Operations | Reproducible synthetic demo; fail-closed reporting inputs | Historical run references remain cohort-specific; backup/restore drill, performance budget and scheduled-job recovery remain unimplemented |
-| Dependency assurance | Pinned runtime/test/build versions and clean installation check | Vulnerability review, supply-chain hashes and cross-platform CI remain open; version pins alone are not a security assessment |
+| Dependency assurance | Pinned runtime/test/build versions and clean installation check; a vendor-data-free GitHub Actions workflow (`.github/workflows/ci.yml`, minimal `contents: read` permission, no credentials) is included and its steps have been run locally in a fresh environment | The workflow has not yet been executed by GitHub itself — this repository has no remote configured yet, so no hosted CI run exists. Local step-by-step verification is not equivalent to a hosted run and should not be described as "CI passing" until GitHub has actually run it. Vulnerability review, supply-chain hashes and cross-platform coverage remain open; version pins alone are not a security assessment |
 
 For a data/model defect: retain the affected run, stop its promotion, record scope and impacted downstream outputs, correct on a new run, then rerun affected validation and reporting gates. Rollback means selecting an intact previously accepted run, never overwriting it. A failed integrity check must be investigated; do not regenerate the receipt merely to silence the failure. New receipts require documented review of changed inputs and downstream acceptance.
 
@@ -43,7 +43,7 @@ Design reference: [Federal Reserve SR 26-2, Revised Guidance on Model Risk Manag
 
 ## Five-minute reviewer walkthrough
 
-**Where to start:** the README's "For reviewers: start here" section, then the [reviewer presentation](https://claude.ai/artifact/DtfvvZiAmzV8GdToQU5jFJ) (8 slides) for a nontechnical overview, then `docs/final_report.md` for the full narrative and acceptance matrix. Read the verified scope and limitations before looking at any performance metric in isolation.
+**Where to start:** the README's "For reviewers: start here" section, then the [reviewer presentation](reviewer_presentation.html) (`docs/reviewer_presentation.html`, 8 slides, standalone offline HTML) for a nontechnical overview, then `docs/final_report.md` for the full narrative and acceptance matrix. Read the verified scope and limitations before looking at any performance metric in isolation.
 
 **What to demonstrate, in order:**
 1. In the historical dashboard's Portfolio view, compare early and late months; explain why missing/masked balances cannot be treated as usable exposure.

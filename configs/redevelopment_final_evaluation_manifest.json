@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-22T16:39:39Z",
+  "note": "Forward-looking control for future executions only. This timestamp is genuine and was never backdated. Building or verifying this manifest does not prove the historical run referenced by cross_check_against_historical_record was itself gated by this check -- only that, as of creation, the listed files matched that run's own recorded hashes where a historical record was available.",
+  "entries": {
+    "candidate": {
+      "path": "artifacts/runs/redevelopment_calibration/66899de49fc84a8da3166d59214c2aa4/frozen_evaluation_model.json",
+      "sha256": "3affa76b4abe5352f6ffc9bce8733589c1b79a55de2ce1c2181548815db431c9"
+    },
+    "benchmark": {
+      "path": "artifacts/runs/redevelopment_model/49235a3eec044f748f4fe4beb4f93c12/benchmark_10.json",
+      "sha256": "cb84c6c0a6e962a828cae38a3bfaca7cfa337801265708bd2a0ad83058325c8a"
+    },
+    "calibration_result": {
+      "path": "artifacts/runs/redevelopment_calibration/66899de49fc84a8da3166d59214c2aa4/redevelopment_calibration_result.json",
+      "sha256": "68235468fc3a72f07b649e316f690f1a5b2a0092057b624f09d20ac101be5c23"
+    },
+    "protocol": {
+      "path": "configs/redevelopment_final_evaluation.json",
+      "sha256": "119130afdd2f3860707047190a38af45ffbcbb5bb284d42f98975e0ca06c9e7d"
+    }
+  },
+  "cross_check_against_historical_record": {
+    "candidate": {
+      "current_sha256": "3affa76b4abe5352f6ffc9bce8733589c1b79a55de2ce1c2181548815db431c9",
+      "historical_sha256": "3affa76b4abe5352f6ffc9bce8733589c1b79a55de2ce1c2181548815db431c9",
+      "matches": true
+    },
+    "benchmark": {
+      "current_sha256": "cb84c6c0a6e962a828cae38a3bfaca7cfa337801265708bd2a0ad83058325c8a",
+      "historical_sha256": "cb84c6c0a6e962a828cae38a3bfaca7cfa337801265708bd2a0ad83058325c8a",
+      "matches": true
+    },
+    "calibration_result": {
+      "current_sha256": "68235468fc3a72f07b649e316f690f1a5b2a0092057b624f09d20ac101be5c23",
+      "historical_sha256": "68235468fc3a72f07b649e316f690f1a5b2a0092057b624f09d20ac101be5c23",
+      "matches": true
+    },
+    "protocol": {
+      "current_sha256": "119130afdd2f3860707047190a38af45ffbcbb5bb284d42f98975e0ca06c9e7d",
+      "historical_sha256": "119130afdd2f3860707047190a38af45ffbcbb5bb284d42f98975e0ca06c9e7d",
+      "matches": true
+    }
+  }
+}

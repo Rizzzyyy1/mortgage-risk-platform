@@ -1,0 +1,45 @@
+name: CI
+
+# Public, vendor-data-free verification. This runs only the repository's own
+# code, its pinned open-source dependencies (requirements.lock /
+# requirements-build.lock) and the synthetic demo fixtures under data/demo/.
+# It never uses, requires or has access to real Fannie Mae vendor data or
+# credentials -- see docs/release_guide.md for the private, real-data
+# workflow, which is not run in CI.
+"on":
+  push:
+    branches: ["main"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-test-demo:
+    name: Build, install, test, synthetic demo
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Install pinned dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.lock -r requirements-build.lock
+
+      - name: Build and install the package (non-editable, no vendor data required)
+        run: python -m pip install --no-deps --no-build-isolation .
+
+      - name: Dependency consistency check
+        run: python -m pip check
+
+      - name: Run test suite (vendor-marked tests skip automatically without a local sample)
+        run: python -m pytest -q
+
+      - name: Run synthetic demo (invented inputs, no vendor data)
+        run: |
+          python -m mortgage_risk.demo --output "${{ runner.temp }}/synthetic-demo-ci"

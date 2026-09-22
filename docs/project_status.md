@@ -5,7 +5,7 @@
 This milestone is presentation and handoff, not further model development. The research build was already complete within its stated scope (see the correction entry immediately below); this milestone packages it for a reviewer.
 
 **What was produced:**
-- **[Reviewer presentation](https://claude.ai/artifact/DtfvvZiAmzV8GdToQU5jFJ)** (`https://claude.ai/artifact/DtfvvZiAmzV8GdToQU5jFJ`): an 8-slide deck built entirely from figures already verified in `docs/final_report.md`/`docs/project_status.md` — business question and intended use; the four-cohort chronological design; pipeline architecture and reproducibility controls; the three model versions (historical benchmark, original challenger, redeveloped candidate) with AUC explained as discrimination, not accuracy; the aggregate-vs-segment calibration finding with exact O/E, 95% CIs and band relationships; the workout/exposure/retrospective-loss evidence; the seven-row acceptance matrix; and reproduction instructions plus future work. No new figures were computed; every number was cross-checked against the source documents before publishing. Private; not yet shared.
+- **[Reviewer presentation](reviewer_presentation.html)** (`docs/reviewer_presentation.html`, standalone offline HTML, no external link dependency): an 8-slide deck built entirely from figures already verified in `docs/final_report.md`/`docs/project_status.md` — business question and intended use; the four-cohort chronological design; pipeline architecture and reproducibility controls; the three model versions (historical benchmark, original challenger, redeveloped candidate) with AUC explained as discrimination, not accuracy; the aggregate-vs-segment calibration finding with exact O/E, 95% CIs and band relationships; the workout/exposure/retrospective-loss evidence; the seven-row acceptance matrix; and reproduction instructions plus future work. No new figures were computed; every number was cross-checked against the source documents before publishing.
 - **README.md**: new "For reviewers: start here" section linking the presentation, final report, historical dashboard (with its private-artifact caveat restated), `docs/professional_review.md`, and the synthetic-demo instructions.
 - **`docs/professional_review.md`**: the "Five-minute reviewer walkthrough" section extended into explicit where-to-start / what-to-demonstrate / which-results-to-explain / which-limitations-to-disclose / how-to-run-the-synthetic-demo subsections, with an explicit restatement that the historical dashboard requires private artifacts not bundled in this package and shows only the original frozen benchmark.
 
@@ -543,8 +543,8 @@ Phase 1B is partially complete and is now focused on analytical definitions and 
 Define the project’s analytical contract before transformation or modeling: cohort design, event definitions, exposure logic, censoring rules, timing rules, and loss perspective for 12-month default probability, remaining-life expected loss, and scenario-conditioned losses.
 
 ### Implementation status
-- Sample inspection code remains in [src/mortgage_risk/fannie_sample_inspect.py](src/mortgage_risk/fannie_sample_inspect.py)
-- Focused tests for date parsing remain in [tests/test_fannie_sample_inspect.py](tests/test_fannie_sample_inspect.py)
+- Sample inspection code remains in [src/mortgage_risk/fannie_sample_inspect.py](../src/mortgage_risk/fannie_sample_inspect.py)
+- Focused tests for date parsing remain in [tests/test_fannie_sample_inspect.py](../tests/test_fannie_sample_inspect.py)
 - The vendor PDF is preserved and ignored by Git
 - Phase 1B analytical documentation is in progress
 

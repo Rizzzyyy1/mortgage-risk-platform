@@ -20,11 +20,16 @@ from mortgage_risk.estimated_models import CLASSES, predict
 from mortgage_risk.challenger import transform, predict_export, evaluate
 from mortgage_risk.external_evaluate import calibration_diagnostics, auc_bins, weighted_auc, comparison_gates
 from mortgage_risk.multi_cohort_adapter import run as run_adapter
+from mortgage_risk.frozen_input_manifest import verify_manifest
 
 
 def run(root):
     root = Path(root).resolve()
     start = time.perf_counter()
+    # Fail-closed frozen-input gate: verify the model/benchmark/calibration-result/protocol
+    # manifest BEFORE any cohort or label processing. A missing, changed or unlisted required
+    # input raises here and nothing below (cohort build, scoring, evaluation) ever runs.
+    verify_manifest(root / 'configs/redevelopment_final_evaluation_manifest.json', root)
     cfg_path = root / 'configs/redevelopment_final_evaluation.json'
     cfg = json.loads(cfg_path.read_text())
     calibration_result = json.loads((root / cfg['calibration_result']).read_text())
@@ -39,7 +44,13 @@ def run(root):
     other_cohorts = {
         '2010Q1_full': root / 'artifacts/runs/historical_ingest/fullquarter_replacement/7a30ef59b2e74c518133ddf5923c92c9/historical_monthly.parquet',
         '2011Q1_full': root / 'artifacts/runs/loan_id_registry/2011Q1_loan_ids.parquet',
-        '2012Q1_full': Path(calibration_result['cohort_adapter_dir']) / 'features.parquet',
+        # Publication-hardening fix (2026-09-22): this previously pointed at the 2012Q1
+        # calibration cohort's snapshot-ELIGIBLE features.parquet, not its full loan population --
+        # a 2012Q1 loan excluded from that snapshot could have overlapped 2013Q1 undetected. Now
+        # points at the genuinely full registry (loan_id_registry.py). See
+        # artifacts/runs/overlap_verification/ for the supplemental, non-destructive evidence this
+        # produced without rerunning this frozen final evaluation.
+        '2012Q1_full': root / 'artifacts/runs/loan_id_registry/2012Q1_loan_ids.parquet',
     }
     adapter_result, adapter_dir = run_adapter(
         root, cohort='2013Q1', source_relpath='data/raw/fannie_mae_loan_performance/2013Q1.csv',

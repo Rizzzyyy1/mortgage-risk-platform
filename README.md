@@ -6,7 +6,7 @@ A reproducible research project connecting mortgage data engineering, competing-
 
 This is a research handoff, not a production system. **Overall model acceptance is qualified/pending review** — see the acceptance matrix in `docs/final_report.md`.
 
-- **[Reviewer presentation](https://claude.ai/artifact/DtfvvZiAmzV8GdToQU5jFJ)** — an 8-slide summary: business question, data/chronological design, architecture, model versions, calibration and segment findings, workout/loss evidence, the acceptance matrix, and reproduction instructions. Private; not yet shared outside this session.
+- **[Reviewer presentation](docs/reviewer_presentation.html)** — a standalone, offline HTML file (open directly in any browser, or print to PDF): business question, data/chronological design, architecture, model versions, calibration and segment findings, workout/loss evidence, the acceptance matrix, and reproduction instructions.
 - **[Final report](docs/final_report.md)** — the single concise handoff document: findings, the acceptance matrix, supported/unsupported claims.
 - **Historical dashboard** — `.venv/bin/python -m mortgage_risk.dashboard`, from the original workspace only; it requires private accepted-report artifacts not bundled in this package, and shows **only the original frozen benchmark**, never the redeveloped/calibrated candidate. See "Historical dashboard" below.
 - **[Latest model evaluation and limitations](docs/professional_review.md)** — model inventory, control assessment, the five-minute reviewer walkthrough, and monitoring specification.
@@ -54,13 +54,18 @@ Choose a new output directory each time. The demo uses invented inputs and reuse
 - [Analytical definitions](docs/target_definitions.md)
 - [Methodology](docs/methodology.md)
 - [Validation record](docs/validation_audit.md)
+- [Release readiness — packaging, licensing and CI evidence](docs/release_readiness.md)
 - [Phase roadmap](docs/roadmap.md)
 
 ## Professional review
 
 [Architecture and evidence flow](docs/architecture.md) · [Model inventory, controls, remaining risks and reviewer walkthrough](docs/professional_review.md)
 
-Run `sh scripts/check_release.sh` for dependency checks, the test suite and a fresh synthetic demo. Reporting now fails closed if any fingerprinted dashboard input changes. Fingerprints are integrity checks, not independent certification.
+Run `sh scripts/check_release.sh` for dependency checks, the test suite and a fresh synthetic demo. Reporting now fails closed if any fingerprinted dashboard input changes. Fingerprints are integrity checks, not independent certification. A vendor-data-free GitHub Actions workflow (`.github/workflows/ci.yml`) runs the same checks; its steps have been verified locally (`docs/release_readiness.md`), but this repository has no remote yet, so no GitHub-hosted run has occurred.
+
+## License
+
+MIT for the original code and documentation in this repository — see [LICENSE](LICENSE). Third-party dependencies and vendor data/methodology are separately attributed and excluded from that grant — see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 ## Architecture
 
