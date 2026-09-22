@@ -1,0 +1,48 @@
+{
+  "version": "multi-cohort-redevelopment-v1",
+  "status": "design_only_no_model_fit",
+  "development": [
+    {
+      "cohort": "2010Q1",
+      "snapshot": "2011-01-01",
+      "outcome_end": "2012-01-01"
+    },
+    {
+      "cohort": "2011Q1",
+      "snapshot": "2012-01-01",
+      "outcome_end": "2013-01-01"
+    }
+  ],
+  "calibration": {
+    "cohort": "2012Q1",
+    "snapshot": "2013-02-01",
+    "outcome_end": "2014-02-01",
+    "source_present": true,
+    "source_path": "data/raw/fannie_mae_loan_performance/2012Q1.csv",
+    "source_sha256": "3e4928f155e7571da8f92116280dd2800e51fc71cf6c82265b50fb510b8a8f07",
+    "source_verified": "2026-09-22"
+  },
+  "final_test": {
+    "cohort": "2013Q1",
+    "snapshot": "2014-03-01",
+    "outcome_end": "2015-03-01",
+    "source_present": true,
+    "source_path": "data/raw/fannie_mae_loan_performance/2013Q1.csv",
+    "source_sha256": "4a818ece1e82e1669da0e77f80afb2082955c356a28c44138d8ad091c1204081",
+    "source_verified": "2026-09-22",
+    "outcome_access_restriction": "Only predefined structural, identifier and snapshot-feature checks permitted before model freeze. No outcome construction, summary or inspection until the revised model and calibration are frozen."
+  },
+  "previous_reservation_change": "2012Q1 reassigned from unaccessed prospective test to calibration before acquisition; failed 2011Q1 result remains immutable. New 2013Q1 final test is untouched.",
+  "chronology": "Each preceding role outcome horizon strictly precedes next role snapshot; revised vendor histories are not proven real-time releases.",
+  "required_controls": [
+    "All-cohort identifier disjointness",
+    "No final outcome access before model and calibration freeze",
+    "Same target/censoring logic and schema verification",
+    "No post-outcome feature extraction",
+    "No automatic class balancing",
+    "Outcome support gate >=100 defaults per calibration/final role; insufficient support stops acceptance"
+  ],
+  "model_scope": "Reuse frozen predictor set and multinomial baseline; bounded development-only selection must be specified before fitting. Do not convert 12-month scores into monthly lifetime hazards.",
+  "promotion": "No automatic promotion; carry forward existing external quantitative criteria plus segment review",
+  "loss_scope": "Feasibility before estimation; map first default to complete workout including cures, outstanding workouts and credit-related exits; do not use disposed loans alone as all-default LGD."
+}

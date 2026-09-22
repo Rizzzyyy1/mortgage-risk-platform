@@ -1,0 +1,13 @@
+{
+ "version":"phase6-v1",
+ "reports":{
+ "acceptance":"artifacts/runs/phase2d_acceptance/0906ff5ce1dd458dba3a892f8ec375c3/acceptance_result.json",
+ "eligibility":"artifacts/runs/exposure_eligibility/7b7177c3473345d091dd1cd19d24799e/eligibility_result.json",
+ "descriptive":"artifacts/runs/phase2f/64d49545a270488ca411e6a731e59465/descriptive_result.json",
+ "benchmark":"artifacts/runs/phase3/8e2217375a004a2b915b6e639f68b476/benchmark_result.json",
+ "design":"artifacts/runs/phase4a/346469500fc34c66b760aeb21def6ffe/design_result.json",
+ "model":"artifacts/runs/phase4b/59e0a87732b248b6b65060391077041f/model_result.json",
+ "stress":"artifacts/runs/phase5/c4ba96b0e7f94dc88a33ab2c8db78d86/stress_result.json"
+ },
+ "monitoring":{"psi_warning":0.1,"psi_critical":0.25,"oe_warning_low":0.8,"oe_warning_high":1.25,"oe_critical_low":0.67,"oe_critical_high":1.5,"minimum_segment_loans":100,"minimum_expected_defaults":20,"unresolved_warning":0.01}
+}

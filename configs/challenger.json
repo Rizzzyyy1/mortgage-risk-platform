@@ -1,0 +1,33 @@
+{
+  "version": "internal-challenger-v1",
+  "features": "artifacts/runs/expanded_features/2d1fe0dacf2548e883b756f23fe1fb8b/expanded_features.parquet",
+  "labels": "artifacts/runs/phase4a/346469500fc34c66b760aeb21def6ffe/train_labels.parquet",
+  "numeric_features": [
+    "borrower_fico",
+    "ltv",
+    "dti",
+    "original_term"
+  ],
+  "categorical_features": [
+    "benchmark_group",
+    "occupancy",
+    "purpose"
+  ],
+  "regularization_C": [
+    0.01,
+    0.1,
+    1.0
+  ],
+  "benchmark_smoothing": [
+    10,
+    100,
+    1000
+  ],
+  "selection_metric": "internal_validation_multiclass_log_loss",
+  "max_iterations": 1000,
+  "seed": 2026,
+  "bootstrap_repeats": 200,
+  "usage": "Exploratory same-date internal validation only. No external promotion.",
+  "solver": "newton-cholesky",
+  "solver_change_note": "L-BFGS reached iteration limit; changed numerical solver before accepting any comparison. Feature set, C grid, splits and selection rule unchanged."
+}

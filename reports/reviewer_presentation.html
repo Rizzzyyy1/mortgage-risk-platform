@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mortgage Credit Risk Platform — Reviewer Handoff</title>
+<meta name="description" content="Standalone offline export of the reviewer handoff presentation. No network dependency, no external fonts.">
+<style>
+  :root{
+    --dark:#1C2536; --dark2:#141B29; --card-dark:#232D40; --border-dark:#34405A;
+    --bg:#F7F5EF; --card:#FFFFFF; --card-alt:#FBF8EF; --border:#E4E1D6; --border-warm:#E9DFC0;
+    --text:#1C2536; --muted:#5B6472; --muted-light:#B9C2CE; --muted-dark:#8C97A6;
+    --gold:#7A5C16; --gold-bright:#C9A227;
+    --green-bg:#E3EEE4; --green-text:#2F5A3A;
+    --amber-bg:#F6E8C9; --amber-text:#75570F;
+    --rust-bg:#F4DCD6; --rust-text:#8A3226;
+    --serif: Georgia, 'Times New Roman', serif;
+    --sans: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0; padding:0; background:#3a3a3a}
+  body{font-family:var(--sans); color:var(--text)}
+  .slide{
+    width:1280px; min-height:720px; margin:24px auto; background:var(--bg);
+    padding:72px; display:flex; flex-direction:column; gap:24px; position:relative;
+    box-shadow:0 8px 30px rgba(0,0,0,0.35); overflow:hidden;
+  }
+  .slide.dark{background:linear-gradient(160deg,var(--dark) 0%, var(--dark2) 100%); color:var(--bg)}
+  .eyebrow{font-size:15px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); margin:0}
+  .dark .eyebrow{color:var(--gold-bright)}
+  h1{font-family:var(--serif); font-size:56px; font-weight:700; line-height:1.08; margin:0}
+  h2{font-family:var(--serif); font-size:38px; font-weight:700; line-height:1.15; margin:0; color:var(--text)}
+  .dark h1,.dark h2{color:var(--bg)}
+  h3{font-size:22px; font-weight:700; margin:0}
+  p{font-size:16px; line-height:1.5; margin:0; color:var(--text)}
+  .dark p{color:var(--muted-light)}
+  .muted{color:var(--muted)}
+  .footer{position:absolute; left:72px; right:72px; bottom:28px; display:flex; justify-content:space-between; font-size:13px; color:var(--muted-dark)}
+  .row{display:flex; gap:18px}
+  .col{flex:1}
+  .card{background:var(--card); border:1px solid var(--border); border-radius:12px; padding:22px; display:flex; flex-direction:column; gap:8px}
+  .card.note{background:var(--card-alt); border-color:var(--border-warm)}
+  .card.dark{background:var(--card-dark); border:1px solid var(--border-dark); color:var(--bg)}
+  .card.dark p{color:#E7EAF0}
+  .stat{background:var(--dark); border-radius:12px; padding:20px 24px; color:var(--bg)}
+  .stat .num{font-size:44px; font-weight:700; margin:0 0 4px 0}
+  .stat .label{font-size:14px; color:var(--muted-light); margin:0}
+  .pill{display:inline-block; font-size:14px; font-weight:700; padding:6px 16px; border-radius:999px}
+  .pill.green{background:var(--green-bg); color:var(--green-text)}
+  .pill.amber{background:var(--amber-bg); color:var(--amber-text)}
+  .pill.rust{background:var(--rust-bg); color:var(--rust-text)}
+  table{width:100%; border-collapse:collapse; border:1px solid var(--border); border-radius:12px; overflow:hidden; font-size:15px}
+  thead tr{background:var(--dark)}
+  th{color:var(--bg); text-align:left; font-weight:700; padding:10px 14px}
+  td{text-align:left; padding:10px 14px; border-top:1px solid var(--border)}
+  tr.green td{background:var(--green-bg)}
+  tr.amber td{background:var(--amber-bg)}
+  tr.rust td{background:var(--rust-bg)}
+  tr.alt td{background:var(--card-alt)}
+  .arrow{align-self:center; font-size:26px; color:var(--gold); font-weight:700}
+  .code{background:var(--dark2); color:var(--muted-light); border-radius:10px; padding:16px 20px; font-family:var(--mono); font-size:13px; line-height:1.7; white-space:pre-wrap}
+  .toc{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px}
+  .toc li{font-size:20px; color:var(--muted-light)}
+  .toc b{color:var(--bg)}
+  @media print{
+    body{background:#fff}
+    .slide{box-shadow:none; margin:0; page-break-after:always; width:auto; min-height:100vh}
+    .slide:last-child{page-break-after:auto}
+  }
+  @page{size:landscape; margin:0}
+</style>
+</head>
+<body>
+
+<section class="slide dark">
+  <p class="eyebrow">Research handoff · Mortgage credit risk &amp; stress testing platform</p>
+  <h1>A reproducible research platform for mortgage credit risk</h1>
+  <p style="font-size:19px; max-width:900px">Can historical Fannie Mae loan-performance data support an interpretable 12-month default-risk model, a transparent illustrative loss framework, and a quantified account of what happens after a loan defaults — while staying explicit about what remains unvalidated?</p>
+  <div class="card dark" style="margin-top:8px">
+    <p style="font-size:15px; font-weight:700; color:var(--gold-bright)">Intended use</p>
+    <p>Aggregate 12-month default-proxy risk <b>ranking</b> for research and reviewer demonstration on 2010–2013 primary-conforming acquisition vintages — not underwriting, pricing, provisioning or regulatory-capital use.</p>
+  </div>
+  <div class="footer">
+    <span>Reviewer handoff · standalone offline export · research build, complete within stated scope</span>
+    <span class="pill amber" style="background:#3A3320; color:#F6E8C9">Overall model acceptance: qualified / pending review</span>
+  </div>
+</section>
+
+<section class="slide">
+  <p class="eyebrow">Data &amp; chronological design</p>
+  <h2>Four cohorts, one frozen chronological design</h2>
+  <p class="muted">Loan-ID disjointness verified across all four cohorts. These roles are not interchangeable — only the last cohort tests the final model.</p>
+  <div class="row" style="align-items:center">
+    <div class="card col">
+      <p style="font-size:13px; font-weight:700; text-transform:uppercase; color:var(--gold)">Development</p>
+      <h3>2010Q1</h3>
+      <p class="muted">5.71 GB · 323,174 loans</p>
+      <p class="muted">20,983,277 records</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="card col">
+      <p style="font-size:13px; font-weight:700; text-transform:uppercase; color:var(--gold)">Development-validation</p>
+      <h3>2011Q1</h3>
+      <p class="muted">9.99 GB · 505,196 loans</p>
+      <p class="muted">Out-of-cohort model selection</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="card col">
+      <p style="font-size:13px; font-weight:700; text-transform:uppercase; color:var(--gold)">Calibration-fitting</p>
+      <h3>2012Q1</h3>
+      <p class="muted">13.85 GB · 911 defaults</p>
+      <p class="muted">Intercept offsets fit once</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="card dark col">
+      <p style="font-size:13px; font-weight:700; text-transform:uppercase; color:var(--gold-bright)">Final evaluation</p>
+      <h3>2013Q1</h3>
+      <p>17.70 GB · 836 defaults</p>
+      <p>Untouched, evaluated once</p>
+    </div>
+  </div>
+  <div class="card note">
+    <p>These four cohorts are loan-disjoint but are <b>not three independent tests</b> of the final model: 2011Q1 shaped model selection and 2012Q1 fit calibration offsets. Only 2013Q1 genuinely tests the frozen model — its features and labels were built together in one step that no earlier script reads, so outcome-blindness is structural, not just a convention.</p>
+  </div>
+  <div class="footer"><span>Mortgage Credit Risk &amp; Stress Testing Platform · Reviewer handoff</span><span>2 / 8</span></div>
+</section>
+
+<section class="slide">
+  <p class="eyebrow">Architecture &amp; reproducibility controls</p>
+  <h2>Reproducible by construction, not by convention</h2>
+  <div class="row">
+    <div class="card col">
+      <h3>Engineering</h3>
+      <p class="muted">Python orchestrates transparent calculations; DuckDB/SQL handles analytical aggregation; Parquet stores detailed outputs. Bounded, single-pass scans are reused across modules instead of re-ingesting.</p>
+    </div>
+    <div class="card col">
+      <h3>Integrity controls</h3>
+      <p class="muted">Every frozen artifact — model, features, labels, protocol — carries a SHA-256 fingerprint. A hash mismatch raises an error rather than silently reusing stale or substituted evidence.</p>
+    </div>
+    <div class="card col">
+      <h3>Frozen protocols</h3>
+      <p class="muted">Model-selection, calibration and final-evaluation criteria were written and hashed before each cohort's outcomes were read. No threshold was relaxed after seeing a result.</p>
+    </div>
+  </div>
+  <div class="row" style="align-items:center">
+    <div class="stat"><p class="num">184</p><p class="label">tests passing</p></div>
+    <div class="card note col"><p><b>sh scripts/check_release.sh</b> runs a dependency check, the full test suite, and a fresh vendor-free synthetic demo in one pass — and fails closed if any fingerprinted input has changed. No refit, recalibration or threshold change occurred after the final 2013Q1 evaluation was read.</p></div>
+  </div>
+  <div class="footer"><span>Mortgage Credit Risk &amp; Stress Testing Platform · Reviewer handoff</span><span>3 / 8</span></div>
+</section>
+
+<section class="slide">
+  <p class="eyebrow">Model versions — do not conflate them</p>
+  <h2>Three model versions, three different results</h2>
+  <table>
+    <thead><tr><th style="width:22%">Version</th><th style="width:20%">Evaluated on</th><th style="width:12%">AUC</th><th style="width:14%">Benchmark AUC</th><th style="width:12%">O/E</th><th style="width:12%">Result</th></tr></thead>
+    <tbody>
+      <tr><td>Historical benchmark</td><td class="muted">Shown on dashboard</td><td class="muted">—</td><td class="muted">—</td><td class="muted">—</td><td class="muted">Unchanged</td></tr>
+      <tr class="alt"><td>Original challenger</td><td class="muted">2011Q1, external</td><td>0.868</td><td class="muted">0.657</td><td style="color:var(--rust-text)">0.787</td><td style="color:var(--rust-text)">Failed gate</td></tr>
+      <tr class="green"><td>Redeveloped candidate</td><td class="muted">2013Q1, untouched</td><td>0.875</td><td class="muted">0.639</td><td style="color:var(--green-text)">0.814</td><td style="color:var(--green-text)">Passed gate</td></tr>
+    </tbody>
+  </table>
+  <div class="card dark">
+    <p style="font-size:15px; font-weight:700; color:var(--gold-bright)">AUC is discrimination, not accuracy</p>
+    <p>AUC is the chance the model ranks a randomly chosen defaulting loan above a randomly chosen non-defaulting loan — not a percentage of correct predictions. AUC 0.875 means that happens 87.5% of the time for the redeveloped candidate, versus 63.9% of the time for the historical benchmark on the same 2013Q1 cohort.</p>
+  </div>
+  <p class="muted">The redeveloped candidate reuses the original challenger's training population and predictors; it was reselected via a development-only comparison on 2011Q1 (the identical model resulted), then calibrated once on 2012Q1. The original challenger's failed evaluation remains an immutable, unaltered record.</p>
+  <div class="footer"><span>Mortgage Credit Risk &amp; Stress Testing Platform · Reviewer handoff</span><span>4 / 8</span></div>
+</section>
+
+<section class="slide">
+  <p class="eyebrow">Calibration — aggregate vs. segment</p>
+  <h2>Aggregate calibration passed; segment concerns remain material</h2>
+  <div class="row" style="align-items:center">
+    <div class="col" style="background:var(--rust-bg); border-radius:12px; padding:16px 22px">
+      <p style="color:var(--rust-text)">Original, 2011Q1</p>
+      <p style="font-size:30px; font-weight:700; color:var(--rust-text)">O/E 0.787 — failed</p>
+    </div>
+    <div class="arrow">→</div>
+    <div class="col" style="background:var(--green-bg); border-radius:12px; padding:16px 22px">
+      <p style="color:var(--green-text)">Redeveloped, 2013Q1</p>
+      <p style="font-size:30px; font-weight:700; color:var(--green-text)">O/E 0.814 — passed</p>
+    </div>
+  </div>
+  <table>
+    <thead><tr><th style="width:24%">Segment</th><th style="width:18%">Loans (% of partition)</th><th style="width:10%">O/E</th><th style="width:18%">Direction</th><th style="width:15%">95% CI</th><th style="width:15%">vs. band</th></tr></thead>
+    <tbody>
+      <tr class="rust"><td>Current / unmodified</td><td>656,937 (99.8%)</td><td>0.736</td><td>Overstates risk</td><td>[0.675, 0.797]</td><td style="color:var(--rust-text)">Below floor</td></tr>
+      <tr class="rust"><td>FICO 720+</td><td>573,236 (87.0%)</td><td>0.628</td><td>Overstates risk</td><td>[0.561, 0.694]</td><td style="color:var(--rust-text)">Below floor</td></tr>
+      <tr class="amber"><td>Two-month delinquent</td><td>144 (0.02%)</td><td>1.414</td><td>Understates risk</td><td>[1.217, 1.598]</td><td style="color:var(--amber-text)">Overlaps ceiling</td></tr>
+      <tr class="amber"><td>FICO &lt;660</td><td>9,359 (1.4%)</td><td>1.299</td><td>Understates risk</td><td>[1.104, 1.507]</td><td style="color:var(--amber-text)">Overlaps ceiling</td></tr>
+    </tbody>
+  </table>
+  <p class="muted">No formal segment-level gate was pre-specified, but the existing requirement to review material segment deterioration still applies — and does not clear this finding. Only the two overprediction segments have intervals lying entirely outside the reference band; the two underprediction segments have well-supported point-estimate breaches whose intervals still overlap it.</p>
+  <div class="footer"><span>Mortgage Credit Risk &amp; Stress Testing Platform · Reviewer handoff</span><span>5 / 8</span></div>
+</section>
+
+<section class="slide">
+  <p class="eyebrow">Separate track — 2010Q1 default episodes</p>
+  <h2>What happens after a default — quantified, not modeled</h2>
+  <p class="muted">8,750 default episodes, followed to their last supportable resolution. Uncoupled from the PD model above.</p>
+  <div class="row">
+    <div class="stat col"><p class="num">24.1%</p><p class="label">reach an actual disposition — exactly matches the 2,108 loans with recorded loss fields</p></div>
+    <div class="stat col"><p class="num">94.1%</p><p class="label">of episodes have a directly usable reported exposure balance at the default month</p></div>
+    <div class="stat col"><p class="num">21.5%</p><p class="label">support a complete accounting-based loss calculation (1,880 loans)</p></div>
+  </div>
+  <table>
+    <thead><tr><th style="width:70%">Resolution of the 8,750 default episodes</th><th style="width:30%">Share</th></tr></thead>
+    <tbody>
+      <tr class="alt"><td>Pay off or mature after default</td><td>47.1%</td></tr>
+      <tr><td>Reach an actual disposition</td><td>24.1%</td></tr>
+      <tr class="alt"><td>Cure, no redefault observed</td><td>19.6%</td></tr>
+      <tr><td>Other exit — loss genuinely unresolved</td><td>7.7%</td></tr>
+      <tr class="alt"><td>Still open at data end</td><td>1.4%</td></tr>
+    </tbody>
+  </table>
+  <div class="card note">
+    <p>Reconciled against Fannie Mae's own retrieved and traced official loss code. The vendor's own credit-event trigger (180-day delinquency) and this project's default-proxy anchor (90-day) agree on the same month for only <b>1.1%</b> of loans — why this stays a descriptive, explicitly-not-LGD measurement, uncoupled from the PD model.</p>
+  </div>
+  <div class="footer"><span>Mortgage Credit Risk &amp; Stress Testing Platform · Reviewer handoff</span><span>6 / 8</span></div>
+</section>
+
+<section class="slide">
+  <p class="eyebrow">Acceptance statement</p>
+  <h2>What is validated, qualified and unsupported</h2>
+  <p class="muted">A passing test suite, aggregate AUC or a research handoff are not institutional model approval.</p>
+  <table>
+    <thead><tr><th style="width:26%">Area</th><th style="width:22%">Status</th><th style="width:52%">Basis</th></tr></thead>
+    <tbody>
+      <tr class="green"><td>Engineering verification</td><td style="color:var(--green-text)">Passed</td><td class="muted">New cohorts checksummed, disjoint, adapter-checked; 184 tests pass</td></tr>
+      <tr class="green"><td>Aggregate quantitative gates</td><td style="color:var(--green-text)">Passed</td><td class="muted">All six preregistered gates, untouched 2013Q1 cohort</td></tr>
+      <tr class="amber"><td>Segment calibration</td><td style="color:var(--amber-text)">Material concerns remain</td><td class="muted">Diagnostic finding; no formal segment gate was pre-specified</td></tr>
+      <tr class="amber"><td>Overall model acceptance</td><td style="color:var(--amber-text)">Qualified / pending review</td><td class="muted">Aggregate pass cannot override material segment deterioration</td></tr>
+      <tr><td>Research package</td><td>Deliverable, with limitations</td><td class="muted">Report, matrix and evidence ready for reviewer evaluation</td></tr>
+      <tr class="rust"><td>Production probability-based use</td><td style="color:var(--rust-text)">Unsupported</td><td class="muted">Segment pattern would misstate calibrated-probability reads</td></tr>
+      <tr class="rust"><td>Predictive LGD / lifetime loss</td><td style="color:var(--rust-text)">Not validated</td><td class="muted">No severity model or hazard-path coupling; separate track</td></tr>
+    </tbody>
+  </table>
+  <p class="muted">Completing this research delivery is not the same claim as approving the model. The model itself is approved for nothing beyond the ranking-only research scope stated on the cover slide. The historical dashboard continues to show only the original frozen benchmark.</p>
+  <div class="footer"><span>Mortgage Credit Risk &amp; Stress Testing Platform · Reviewer handoff</span><span>7 / 8</span></div>
+</section>
+
+<section class="slide">
+  <p class="eyebrow">Reproduce &amp; what's next</p>
+  <h2>Reproduction, boundaries and future work</h2>
+  <div class="row">
+    <div class="card dark col">
+      <h3 style="color:#fff">Without vendor data</h3>
+      <div class="code">.venv/bin/python -m pip install -r requirements.lock
+.venv/bin/python -m pytest -q
+.venv/bin/python -m mortgage_risk.demo --output ...</div>
+      <p>Invented inputs, existing risk/loss engines, checksummed JSON output. Also run by <b>sh scripts/check_release.sh</b>.</p>
+    </div>
+    <div class="card col">
+      <h3>With vendor data</h3>
+      <p class="muted">Requires the private 2010Q1–2013Q1 files, not bundled in this package. Re-run the module referenced by each artifact directory in <b>project_status.md</b> / <b>redevelopment_plan.md</b>.</p>
+      <p class="muted">The historical dashboard also needs private accepted-report artifacts, not bundled — and shows only the <b>original frozen benchmark</b>, never the redeveloped candidate.</p>
+    </div>
+  </div>
+  <table>
+    <thead><tr><th style="width:34%">Future work — separate, new milestones</th><th style="width:66%">Requires</th></tr></thead>
+    <tbody>
+      <tr class="alt"><td>Segment-specific remediation</td><td class="muted">Development-only changes and a freshly reserved final-test cohort</td></tr>
+      <tr><td>Predictive LGD model</td><td class="muted">Resolving the 90-day vs. 180-day event-definition gap plus recovery-timing evidence</td></tr>
+      <tr class="alt"><td>Actual-portfolio lifetime loss</td><td class="muted">A severity model plus a validated monthly hazard path</td></tr>
+      <tr><td>Independent external validation</td><td class="muted">Required before any business use, beyond developer self-review</td></tr>
+    </tbody>
+  </table>
+  <p class="muted">No model promotion, new cohort acquisition, commit, publication or deployment was performed in this handoff milestone.</p>
+  <div class="footer"><span>Mortgage Credit Risk &amp; Stress Testing Platform · Reviewer handoff</span><span>8 / 8</span></div>
+</section>
+
+</body>
+</html>

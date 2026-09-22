@@ -1,0 +1,69 @@
+# Local Python environment and caches
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Packaging build outputs
+*.egg-info/
+build/
+dist/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Raw, intermediate, and processed project data
+/data/raw/
+data/raw/
+data/interim/
+data/processed/
+
+# Vendor reference files and local saved documentation
+crt-file-layout-and-glossary.pdf
+**/crt-file-layout-and-glossary.pdf
+data/raw/fannie_mae_loan_performance/*.pdf
+
+# Local database files and temporary companion files
+*.db
+*.sqlite
+*.sqlite3
+*.duckdb
+*.db-shm
+*.db-wal
+*.sqlite-shm
+*.sqlite-wal
+
+# Generated outputs and run traces
+artifacts/runs/
+artifacts/logs/
+
+# Notebook and workspace clutter
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+
+# Editor and local tooling
+.vscode/
+*.swp
+
+# Track curated project documentation and synthetic demo fixtures
+!docs/
+!docs/**
+!reports/
+!reports/**
+!data/demo/
+!data/demo/**
+
+# Auxiliary local environments and DuckDB journals
+.venv_*/
+*.db.wal
+*.duckdb.wal

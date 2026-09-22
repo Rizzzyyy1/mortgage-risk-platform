@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mortgage-risk-platform"
+version = "0.1.0"
+description = "Mortgage credit risk and stress testing platform"
+readme = "README.md"
+requires-python = ">=3.11, <3.15"
+dependencies = [
+    "PyYAML>=6.0.1",
+    "duckdb>=1.5.5",
+    "scikit-learn==1.9.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pip-tools>=7.0.0",
+]
+
+[project.scripts]
+mortgage-risk = "mortgage_risk.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+markers = ["vendor_data: optional integration test requiring a locally acquired vendor sample"]

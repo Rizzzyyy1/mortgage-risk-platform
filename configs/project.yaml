@@ -1,0 +1,4 @@
+schema_version: 1
+project_name: "Mortgage Credit Risk & Stress Testing Platform"
+data_dir: "data"
+output_dir: "artifacts/runs"

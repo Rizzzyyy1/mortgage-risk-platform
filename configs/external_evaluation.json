@@ -1,0 +1,22 @@
+{
+ "version":"external-evaluation-v1",
+ "cohort":"2011Q1",
+ "expected_source":"data/raw/fannie_mae_loan_performance/2011Q1.csv",
+ "snapshot_date":"2012-01-01",
+ "horizon_date":"2013-01-01",
+ "candidate":"artifacts/runs/challenger/f94a630d661f4ea28f7a21c4a567c74c/logistic_1.0.json",
+ "benchmark":"artifacts/runs/challenger/f94a630d661f4ea28f7a21c4a567c74c/benchmark_10.json",
+ "development_result":"artifacts/runs/challenger/f94a630d661f4ea28f7a21c4a567c74c/challenger_result.json",
+ "minimum_observed_defaults":100,
+ "maximum_unresolved_fraction":0.01,
+ "calibration_oe_range":[0.8,1.25],
+ "maximum_auc_degradation":0.02,
+ "paired_log_loss_ci_upper_must_be_below":0,
+ "brier_must_not_exceed_benchmark":true,
+ "bootstrap_repeats":1000,
+ "seed":2026,
+ "threshold_basis":"Project review criteria fixed after internal development but before accessing the reserved cohort; not regulatory standards or power guarantees.",
+ "no_refit":true,
+ "no_recalibration":true,
+ "promotion":"manual review only after data, performance and limitation checks; no automatic production promotion"
+}

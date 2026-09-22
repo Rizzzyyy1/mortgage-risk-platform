@@ -1,0 +1,5 @@
+{
+  "version": "phase7-v1",
+  "validation_report": "artifacts/runs/phase6/6c871180c0cc4afeb49b3fe755337725/validation_result.json",
+  "integrity_manifest": "configs/dashboard_integrity.json"
+}

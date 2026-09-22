@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "files": {
+    "artifacts/runs/exposure_eligibility/7b7177c3473345d091dd1cd19d24799e/eligibility_result.json": "1beeeb5c1e3d6375c5d518136000dd8e7d4011d689ebc23d470ec27c1a37e5e5",
+    "artifacts/runs/phase2d_acceptance/0906ff5ce1dd458dba3a892f8ec375c3/acceptance_result.json": "58f577b3f405153929e861a69f172f8ab6773e285b19fc19bf51e636be76ca23",
+    "artifacts/runs/phase2f/64d49545a270488ca411e6a731e59465/descriptive_result.json": "f77301f259cd3db1139a9d73ea0009624dca7f8cad5e485c7757b5bc79b28832",
+    "artifacts/runs/phase3/8e2217375a004a2b915b6e639f68b476/benchmark_result.json": "5ee62be90f0dd4128437b0f9ee83a9fb43fcdec2989d6decea2d705d7e73cfc8",
+    "artifacts/runs/phase4a/346469500fc34c66b760aeb21def6ffe/design_result.json": "b5c2a72aae32f95efc644a30bbad2e3fc0efb813cc66997473937f8db730aa57",
+    "artifacts/runs/phase4b/59e0a87732b248b6b65060391077041f/model_result.json": "a54038338b9bc688e8549fe7d92f0e1b4cc1b16f25fe1f65604ddb795f06ec92",
+    "artifacts/runs/phase5/c4ba96b0e7f94dc88a33ab2c8db78d86/adverse_schedule.json": "6eb9a710bb51ab16d7fd9e2fe0a257c929073de7bc5db16a1ca7f8b4e1bb77b4",
+    "artifacts/runs/phase5/c4ba96b0e7f94dc88a33ab2c8db78d86/baseline_schedule.json": "e0b30c95367d9fc74078e19c641e189fe13155eb78199ed1edae86d892145631",
+    "artifacts/runs/phase5/c4ba96b0e7f94dc88a33ab2c8db78d86/sensitivity.json": "66279590941e1a2cac2539431f4dadba5d08bf48e12b4454a53b9d5af1f8be77",
+    "artifacts/runs/phase5/c4ba96b0e7f94dc88a33ab2c8db78d86/stress_result.json": "b61850e0f901de2af3e4d845a211e524f94c59cdf22b0ae0d6e1f94a716aff26",
+    "artifacts/runs/phase6/6c871180c0cc4afeb49b3fe755337725/validation_result.json": "6d01f290a7b387005726675c92260ccc9aae97d2292b9ef2b7b3896e83d1a38f"
+  }
+}

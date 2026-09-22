@@ -1,0 +1,20 @@
+{
+  "version": "phase3-v1",
+  "input_run": "artifacts/runs/phase2f/64d49545a270488ca411e6a731e59465",
+  "hypothetical_loan": {"opening_balance": 100000, "annual_coupon": 0.04, "remaining_months": 120},
+  "scenarios": {
+    "baseline": {"default_hazard_multiplier": 1.0, "payoff_hazard_multiplier": 1.0, "lgd": 0.20},
+    "adverse": {"default_hazard_multiplier": 2.0, "payoff_hazard_multiplier": 0.7, "lgd": 0.35}
+  },
+  "assumptions": [
+    "Historical time starts at first observation, not origination. Entry-known 00-02 loans only; no exposure-eligibility filtering of risk denominators.",
+    "Default proxy and combined payoff/maturity follow Phase2F. No pure-prepayment claim.",
+    "Unknown/ambiguous/unsupported states censor before their interval; reporting gaps censor after the previous valid month; other exits and observation ends censor at the interval end. Within-month ordering is a project convention.",
+    "Cumulative incidence uses joint survival and both competing hazards. Censoring removes observations from later risk sets, not from probability mass. Noninformative censoring is an unverified identification assumption.",
+    "Constant illustrative hazards pool events over observed risk-months in the first 12 months; they are not the age-varying historical curve and are not validated out-of-time predictions.",
+    "The $100,000 loan, 4% coupon, 120-month remaining term, 20%/35% LGDs and adverse hazard multipliers are judgmental demonstration inputs, not measured cohort economics or a macro-calibrated stress scenario.",
+    "Conditional exposure follows fixed-rate scheduled amortization. Defaults and proxy payoffs occur on opening balances before payment. Surviving probability matures at the final scheduled payment.",
+    "Expected loss is undiscounted marginal default probability times conditional opening exposure times assumed LGD; survival is applied once. Assumed recoveries equal defaulted balance times one minus LGD, with no recovery timing model.",
+    "The loss example is synthetic and does not impute masked real balances. Full-cohort loss estimation, verified maturity, severity estimation, revisions, and predictive validation remain open."
+  ]
+}

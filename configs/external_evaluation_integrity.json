@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "files": {
+    "artifacts/runs/challenger/f94a630d661f4ea28f7a21c4a567c74c/benchmark_10.json": "cb84c6c0a6e962a828cae38a3bfaca7cfa337801265708bd2a0ad83058325c8a",
+    "artifacts/runs/challenger/f94a630d661f4ea28f7a21c4a567c74c/challenger_result.json": "1bd6c09e97e8e79d8dcc28ccbf1fdaf53d6e7a6fc20df45fd4b0e2bb35645434",
+    "artifacts/runs/challenger/f94a630d661f4ea28f7a21c4a567c74c/logistic_1.0.json": "7f31582aa26fbae1bc9e4bbcc4a9369f18f64680b50d1b1663e05620ac353085",
+    "configs/external_evaluation.json": "c7748c315f828aca2f066d318a4ac9f23c596d6dc162f377276f3f78f823f695"
+  }
+}

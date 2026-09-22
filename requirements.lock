@@ -1,0 +1,26 @@
+# Pinned release environment, verified with Python 3.14 on macOS ARM64.
+# Runtime/test pins; build tool pins are in requirements-build.lock.
+iniconfig==2.3.0
+    # via pytest
+packaging==26.3
+    # via pytest
+pluggy==1.6.0
+    # via pytest
+pygments==2.21.0
+    # via pytest
+pytest==9.1.1
+    # via -r requirements.in
+pyyaml==6.0.3
+    # via -r requirements.in
+
+duckdb==1.5.5
+    # via -r requirements.in
+
+# Internal challenger numerical dependencies
+scikit-learn==1.9.1
+numpy==2.5.3
+scipy==1.18.1
+joblib==1.6.0
+narwhals==2.26.0
+threadpoolctl==3.7.0
+cloudpickle==3.1.2

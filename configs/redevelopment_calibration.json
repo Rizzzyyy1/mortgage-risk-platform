@@ -1,0 +1,20 @@
+{
+  "version": "redevelopment-calibration-v1",
+  "status": "frozen_before_2012q1_labels_read",
+  "cohort": "2012Q1",
+  "snapshot_date": "2013-02-01",
+  "outcome_end_date": "2014-02-01",
+  "source_path": "data/raw/fannie_mae_loan_performance/2012Q1.csv",
+  "bounded_comparison_rule": "Fit a single pair of multinomial intercept offsets (event-free class fixed as reference, matching calibration_remediation.py's coherent normalization) directly on all known-outcome 2012Q1 rows by MLE. Compare adjusted vs. unchanged multiclass log loss on that SAME 2012Q1 population. Select 'adjusted' only if log loss improves by more than the tie threshold below; otherwise keep 'unchanged'. This is a calibration-set fit, not an independent validation -- 2013Q1 alone provides that.",
+  "log_loss_tie_threshold": 1e-6,
+  "reject_if": ["optimizer_does_not_converge", "nonfinite_offsets", "fewer_than_100_observed_defaults_in_2012Q1"],
+  "minimum_observed_defaults": 100,
+  "segment_review_fields": ["benchmark_group", "occupancy", "purpose"],
+  "segment_insufficient_support_defaults": 20,
+  "segment_insufficient_support_loans": 100,
+  "development_model_run": "artifacts/runs/redevelopment_model/49235a3eec044f748f4fe4beb4f93c12/redevelopment_model_result.json",
+  "development_model_candidate": "artifacts/runs/redevelopment_model/49235a3eec044f748f4fe4beb4f93c12/logistic_1.0.json",
+  "development_model_benchmark": "artifacts/runs/redevelopment_model/49235a3eec044f748f4fe4beb4f93c12/benchmark_10.json",
+  "no_feature_or_hyperparameter_search": true,
+  "no_2013q1_access": true
+}

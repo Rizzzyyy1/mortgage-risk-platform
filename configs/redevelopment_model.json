@@ -1,0 +1,28 @@
+{
+  "version": "redevelopment-model-v1",
+  "status": "frozen_before_fitting",
+  "design_rationale": "Development-only chronological comparison, not an unrestricted feature/hyperparameter search. Training uses the same 2010Q1 development-split rows and frozen predictor set already accepted in the original challenger (configs/challenger.json); this design changes only the model-selection validation set, from the same-cohort md5-hash internal_validation split to the full, chronologically later, previously-external 2011Q1 population, which the redevelopment plan explicitly permits to now inform development. This is the smallest change that lets development-only selection use out-of-cohort evidence before ever touching the 2012Q1 calibration or 2013Q1 final-test cohorts. No nonlinear terms or interactions are introduced; the same multinomial logistic form is reused.",
+  "training_features": "artifacts/runs/expanded_features/2d1fe0dacf2548e883b756f23fe1fb8b/expanded_features.parquet",
+  "training_labels": "artifacts/runs/phase4a/346469500fc34c66b760aeb21def6ffe/train_labels.parquet",
+  "training_split": "development",
+  "training_split_note": "Same md5(expanded-v1:+loan_id) split already frozen in expanded_features.py; only the 'development' partition (2010Q1, Jan 2011 snapshot) is used for fitting. The 'internal_validation' partition of 2010Q1 is reported for reference only and is NOT used for candidate selection in this design.",
+  "development_validation_features": "artifacts/runs/external_cohort/520d427266944462a622978247670345/features.parquet",
+  "development_validation_labels": "artifacts/runs/external_cohort/520d427266944462a622978247670345/labels.parquet",
+  "development_validation_note": "2011Q1, Jan 2012 snapshot, outcomes through Jan 2013 -- the population previously scored once as an external test (artifacts/runs/external_evaluation/bb53b87c6a034af29614c2c5768b4b06/, calibration failed, immutable). Reused here only for candidate selection during development, per the redevelopment plan's explicit permission; it is not evaluated again as an external test.",
+  "numeric_features": ["borrower_fico", "ltv", "dti", "original_term"],
+  "categorical_features": ["benchmark_group", "occupancy", "purpose"],
+  "regularization_C": [0.01, 0.1, 1.0],
+  "benchmark_smoothing": [10, 100, 1000],
+  "selection_metric": "development_validation_multiclass_log_loss",
+  "solver": "newton-cholesky",
+  "max_iterations": 1000,
+  "seed": 2026,
+  "bootstrap_repeats": 200,
+  "usage": "Development-only model selection. Not calibration (2012Q1) and not final evaluation (2013Q1).",
+  "controls": [
+    "Preprocessing (medians, scales, categories) fit on 2010Q1 development rows only.",
+    "Candidate set fixed before this run: three L2 regularization strengths plus the constant/smoothed benchmark family, identical to configs/challenger.json.",
+    "No hyperparameter or feature search beyond this fixed grid.",
+    "2012Q1 and 2013Q1 are not read by this step."
+  ]
+}

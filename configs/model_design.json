@@ -1,0 +1,10 @@
+{
+ "version":"phase4a-v1",
+ "eligibility_run":"artifacts/runs/exposure_eligibility/7b7177c3473345d091dd1cd19d24799e",
+ "event_run":"artifacts/runs/phase2f/64d49545a270488ca411e6a731e59465",
+ "splits":[
+  {"split":"train","snapshot_date":"2011-01-01","hash_prefixes":"0123456789ab"},
+  {"split":"validation","snapshot_date":"2013-01-01","hash_prefixes":"cd"},
+  {"split":"test","snapshot_date":"2015-01-01","hash_prefixes":"ef"}
+ ]
+}

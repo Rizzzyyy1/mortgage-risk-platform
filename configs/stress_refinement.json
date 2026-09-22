@@ -1,0 +1,10 @@
+{
+ "version":"phase5-v1",
+ "benchmark_run":"artifacts/runs/phase3/8e2217375a004a2b915b6e639f68b476",
+ "hold_months":24,"fade_end_month":60,"annual_discount_rate":0.04,"baseline_recovery_lag_months":6,
+ "adverse":{"default_multiplier":2.0,"payoff_multiplier":0.7,"lgd":0.35,"recovery_lag_months":18},
+ "sensitivity":{
+  "default_multiplier":[0.5,1,2],"payoff_multiplier":[0.5,1,1.5],"lgd":[0.1,0.2,0.35],
+  "remaining_months":[60,120,180],"annual_discount_rate":[0,0.04,0.08],"recovery_lag_months":[0,6,18]
+ }
+}
