@@ -1,10 +1,12 @@
 # Third-Party Notices
 
 `LICENSE` (MIT) covers only the original source code, tests, SQL, scripts,
-configuration and documentation authored in this repository. It does not
-cover, and grants no rights to, the third-party material described below.
-This file lists what that material is, how this project uses it, and what
-is (and is not) redistributed in this repository.
+configuration and documentation authored in this repository (`src/`,
+`tests/`, `sql/`, `scripts/`, `app/`, `configs/`, `docs/`, `README.md` and
+related project files). It does not cover, and grants no rights to, the
+third-party material described below. This file lists what that material
+is, how this project uses it, and what is (and is not) redistributed in
+this repository.
 
 ## Vendor data: Fannie Mae Single-Family Loan Performance Data
 

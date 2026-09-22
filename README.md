@@ -61,7 +61,7 @@ Choose a new output directory each time. The demo uses invented inputs and reuse
 
 [Architecture and evidence flow](docs/architecture.md) · [Model inventory, controls, remaining risks and reviewer walkthrough](docs/professional_review.md)
 
-Run `sh scripts/check_release.sh` for dependency checks, the test suite and a fresh synthetic demo. Reporting now fails closed if any fingerprinted dashboard input changes. Fingerprints are integrity checks, not independent certification. A vendor-data-free GitHub Actions workflow (`.github/workflows/ci.yml`) runs the same checks; its steps have been verified locally (`docs/release_readiness.md`), but this repository has no remote yet, so no GitHub-hosted run has occurred.
+Run `sh scripts/check_release.sh` for dependency checks, the test suite and a fresh synthetic demo. Reporting now fails closed if any fingerprinted dashboard input changes. Fingerprints are integrity checks, not independent certification. A vendor-data-free GitHub Actions workflow (`.github/workflows/ci.yml`) runs the same checks; [it passed on GitHub for commit `846ace9`](https://github.com/Rizzzyyy1/mortgage-risk-platform/actions/runs/35771122605) — a verified result for that specific commit, not a standing guarantee that every later commit passes. Check the [Actions tab](https://github.com/Rizzzyyy1/mortgage-risk-platform/actions) for the current commit's status.
 
 ## License
 

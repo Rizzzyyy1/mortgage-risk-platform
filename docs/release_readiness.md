@@ -43,11 +43,18 @@ review).
   verified baseline stated in `README.md`.
 - YAML validated by parsing it with `PyYAML` locally; every step's command
   was independently exercised (see §3) with matching results.
-- **Not yet run by GitHub.** This repository has no remote configured, so
-  no push or pull request has ever triggered this workflow. Nothing here
-  should be described as "CI passing" — only as locally verified,
-  equivalent steps. `docs/professional_review.md`'s dependency-assurance
-  row now states this distinction explicitly.
+- **Not yet run by GitHub at the time this report was written.** This
+  repository had no remote configured yet, so no push or pull request had
+  triggered this workflow. Nothing here was described as "CI passing" —
+  only as locally verified, equivalent steps.
+- **Update (post-publication):** the repository has since been published
+  to `https://github.com/Rizzzyyy1/mortgage-risk-platform`, and this
+  workflow [passed on GitHub for commit
+  `846ace9`](https://github.com/Rizzzyyy1/mortgage-risk-platform/actions/runs/35771122605).
+  That confirms this specific run, not a standing guarantee that every
+  later commit passes — check the repository's Actions tab for the
+  current commit's status. `docs/professional_review.md`'s
+  dependency-assurance row reflects this update.
 
 ## 3. Release-candidate verification (evidence)
 
